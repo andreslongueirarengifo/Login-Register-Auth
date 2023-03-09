@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const FormLogin = ()=>{
+    const navigate = useNavigate();
     return(
 
         <div className="w-25">
@@ -30,6 +32,7 @@ export const FormLogin = ()=>{
                 />
                 </div>
             </div>
+            <button type="button" class="btn btn-light" onClick={()=>{navigate('/private')}}>Iniciar sesion</button>
         </div>
 
     )
