@@ -5,7 +5,7 @@ import injectContext from "./store/appContext";
 
 import { Login } from "./pages/login.jsx";
 import { Register } from "./pages/register.jsx";
-import { PrivatePage } from "./pages/private_page";
+import { PrivatePage } from "./pages/private_page.jsx";
 
 //create your first component
 const Layout = () => {
