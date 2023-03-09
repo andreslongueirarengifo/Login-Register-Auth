@@ -5,6 +5,7 @@ import injectContext from "./store/appContext";
 
 import { Login } from "./pages/login.jsx";
 import { Register } from "./pages/register.jsx";
+import { PrivatePage } from "./pages/private_page";
 
 //create your first component
 const Layout = () => {
@@ -17,6 +18,7 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Login />} path="/" />
                         <Route element={<Register />} path='/register' /> 
+                        <Route element={<PrivatePage />} path='/private' />
                     </Routes>
             </BrowserRouter>
         </div>
