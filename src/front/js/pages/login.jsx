@@ -7,8 +7,9 @@ export const Login = () => {
     return(
         <>
         <h2>Login</h2>
-        <FormLogin></FormLogin>
-        <button type="button" class="btn btn-light" onClick={()=>{navigate('/register')}}>
+        <FormLogin />
+        <button type="button" class="btn btn-light">Iniciar sesion</button>
+        <button type="button" class="btn btn-link" onClick={()=>{navigate('/register')}}>
             registrar usuario
         </button>
         </>
