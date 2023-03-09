@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const FormSignup = () => {
+    const navigate = useNavigate();
   return (
     <>
     <div className="w-25">
@@ -62,7 +64,7 @@ export const FormSignup = () => {
 									/>
 								</div>
 	</div>
-    <button type="button" class="btn btn-light">Registrar</button>
+    <button type="button" class="btn btn-light" onClick={()=>{navigate('/')}}>Registrar</button>
 	</div>
     </>
     );
