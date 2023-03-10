@@ -12,6 +12,7 @@ export const PrivatePage = () =>{
     }
     return(
     <>
+    {store.isAuthenticated?
     <div class="container bg-dark">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -20,6 +21,10 @@ export const PrivatePage = () =>{
         </div>
     </nav>
     </div>
+    :
+    <h1>No has iniciado sesión</h1>
+    }
+    
     </>
     )
 }

@@ -55,7 +55,7 @@ export const FormLogin = ()=>{
                 />
                 </div>
             </div>
-            <button type="button" class="btn btn-light" onClick={handleClick}>Iniciar sesion</button>
+            <button type="button" className="btn btn-light" onClick={handleClick}>Iniciar sesion</button>
             <Toaster   
             position="bottom-left"
             reverseOrder={false}/>
