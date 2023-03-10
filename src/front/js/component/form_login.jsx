@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../store/appContext";
+
+import toast, { Toaster } from 'react-hot-toast';
+import { login } from "../services/user_services";
 
 export const FormLogin = ()=>{
+    const [ formData, setFormData ] = useState({});
+    const { store, actions } = useContext(Context);
     const navigate = useNavigate();
+
+    const handleChange = (e)=>{
+        setFormData({ ...formData, [e.target.id]:e.target.value });
+    }
+
+    const handleClick = async (e) =>{
+        e.preventDefault();
+        const data = await login(formData)
+        if(data.token){
+            actions.loginState();
+            navigate('/private')
+        }
+        toast.error("Usuario o contraseña incorrectos")
+    }
+
     return(
 
         <div className="w-25">
@@ -14,6 +35,7 @@ export const FormLogin = ()=>{
                 <input
                     type="text"
                     id="email"
+                    onChange={handleChange}
                     className="form-control"
                     aria-label="Email"
                 />
@@ -27,12 +49,16 @@ export const FormLogin = ()=>{
                 <input
                     type="password"
                     id="password"
+                    onChange={handleChange}
                     className="form-control"
                     aria-label="Contraseña"
                 />
                 </div>
             </div>
-            <button type="button" class="btn btn-light" onClick={()=>{navigate('/private')}}>Iniciar sesion</button>
+            <button type="button" class="btn btn-light" onClick={handleClick}>Iniciar sesion</button>
+            <Toaster   
+            position="bottom-left"
+            reverseOrder={false}/>
         </div>
 
     )
