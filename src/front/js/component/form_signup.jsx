@@ -21,7 +21,7 @@ return (
     <div className="row py-3">
 								<div className="col">
 									<label htmlFor="email" className="form-label">
-										Email *
+										Email
 									</label>
 									<input
 										type="text"
@@ -36,7 +36,7 @@ return (
 	<div className="row">
 								<div className="col">
 									<label htmlFor="password" className="form-label">
-										Contraseña *
+										Contraseña 
 									</label>
 									<input
 										type="password"
@@ -44,17 +44,6 @@ return (
 										onChange={handleChange}
 										className="form-control"
 										aria-label="Contraseña"
-									/>
-								</div>
-								<div className="col">
-									<label htmlFor="passwordRepeat" className="form-label">
-										Confirmar contraseña *
-									</label>
-									<input
-										type="password"
-										id="passwordRepeat"
-										className="form-control"
-										aria-label="Confirmar contraseña"
 									/>
 								</div>
 	</div>
