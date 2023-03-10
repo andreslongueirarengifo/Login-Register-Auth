@@ -1,31 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signup } from "../services/user_services";
 
 export const FormSignup = () => {
+	const [ formData, setFormData ] = useState({});
     const navigate = useNavigate();
-  return (
+
+	const handleChange = (e)=>{
+		setFormData({ ...formData,[e.target.id]: e.target.value });
+	}
+
+	const handleClick = (e)=>{
+		e.preventDefault();
+		signup(formData)
+		navigate('/')
+	}
+return (
     <>
     <div className="w-25">
-    <div className="row">
-	    <div className="col">
-		    <label htmlFor="name" className="form-label">
-				Nombre *
-			</label>
-		    <input type="text" id="name" className="form-control" aria-label="Nombre" />
-			</div>
-
-			<div className="col">
-				<label htmlFor="lastname" className="form-label">
-					Apellidos *
-				</label>
-									<input
-										type="text"
-										id="lastname"
-										className="form-control"
-										aria-label="Apellidos"
-									/>
-								</div>
-	</div>
     <div className="row py-3">
 								<div className="col">
 									<label htmlFor="email" className="form-label">
@@ -34,6 +26,7 @@ export const FormSignup = () => {
 									<input
 										type="text"
 										id="email"
+										onChange={handleChange}
 										className="form-control"
 										aria-label="Email"
 									/>
@@ -48,6 +41,7 @@ export const FormSignup = () => {
 									<input
 										type="password"
 										id="password"
+										onChange={handleChange}
 										className="form-control"
 										aria-label="Contraseña"
 									/>
@@ -64,7 +58,7 @@ export const FormSignup = () => {
 									/>
 								</div>
 	</div>
-    <button type="button" class="btn btn-light" onClick={()=>{navigate('/')}}>Registrar</button>
+    <button type="button" class="btn btn-light" onClick={handleClick}>Registrar</button>
 	</div>
     </>
     );
